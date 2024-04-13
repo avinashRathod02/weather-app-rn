@@ -1,0 +1,23 @@
+{
+  "common": {},
+  "header": {
+    "dashboard": "Dashboard"
+  },
+  "button": {
+    "continue": "Continue"
+  },
+  "item": {
+    "name_label": "Name",
+    "name_placeholder": "Enter Name",
+    "image_label": "Image"
+  },
+  "lost_internet": {
+    "title": "Connection Lost",
+    "description": "Please check your mobile or Wifi settings to verify your internet connectivity and then try again."
+  },
+  "notification": {
+    "success": "Success!",
+    "error": "Error!",
+    "something_went_wrong": "Something Went Wrong"
+  }
+}
