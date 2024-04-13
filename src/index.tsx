@@ -1,5 +1,5 @@
 import React from 'react'
-import {LogBox} from 'react-native'
+import {LogBox, StatusBar} from 'react-native'
 import {SafeAreaProvider} from 'react-native-safe-area-context'
 // import {AppUpdate} from '@/components/common'
 import './config/config-i18n'
@@ -25,6 +25,7 @@ LogBox.ignoreAllLogs()
 const App = () => {
   return (
     <SafeAreaProvider>
+      <StatusBar barStyle="dark-content" backgroundColor={'#fff'} />
       <ApplicationNavigator />
     </SafeAreaProvider>
   )
