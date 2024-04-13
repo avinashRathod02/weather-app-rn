@@ -96,6 +96,7 @@
     ".prettirerrc.js",
     "metro.config.tsx",
     "jest.config.js",
+    "index.js",
     "index.tsx",
     "src/index.tsx"
   ],

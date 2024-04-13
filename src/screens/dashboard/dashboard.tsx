@@ -2,32 +2,24 @@ import React, {useEffect, useState} from 'react'
 import {SafeAreaView} from 'react-native-safe-area-context'
 import Item from './item'
 import {ActivityIndicator, FlatList, View} from 'react-native'
-import axios from 'axios'
 import colors from '@/colors'
 import {Text} from '@/components'
-import {useLiveLocation} from '@/hooks'
+import {useAppDispatch, useAppSelector, useLiveLocation} from '@/hooks'
 import {hasObjectLength} from '@/utils'
 import {useIsFocused} from '@react-navigation/native'
+import {fetchWeatherData} from '@/store/slices/common'
 
 export default props => {
-  const [loading, setLoading] = useState(false)
   const [fetching, setFetching] = useState(true)
-  const [items, setItems] = useState([])
+  const {items, dashboardLoading} = useAppSelector(state => state.common)
+
   const fetchWeather = async () => {
     if (!hasObjectLength(location)) return
-    setLoading(true)
-    const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${location?.latitude}&lon=${location?.longitude}&exclude=hourly%2Cminutely&appid=00d49afb60af52a47022d369756ca31a&units=metric`
-    axios
-      .get(url)
-      .then(({data}) => {
-        setItems(data?.daily ?? [])
-      })
-      .catch(err => {})
-      .finally(() => {
-        setFetching(false)
-        setLoading(false)
-      })
+    await dispatch(fetchWeatherData()).then(({payload}) => {
+      setFetching(false)
+    })
   }
+  const dispatch = useAppDispatch()
   const location = useLiveLocation()
   const isFocused = useIsFocused()
   useEffect(() => {
@@ -44,7 +36,7 @@ export default props => {
         {!fetching && (
           <FlatList
             ListEmptyComponent={NoData}
-            refreshing={loading}
+            refreshing={dashboardLoading}
             onRefresh={fetchWeather}
             data={items}
             style={{height: '100%', paddingTop: 30}}

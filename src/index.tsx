@@ -4,6 +4,9 @@ import {SafeAreaProvider} from 'react-native-safe-area-context'
 // import {AppUpdate} from '@/components/common'
 import './config/config-i18n'
 import {ApplicationNavigator} from './navigation'
+import {Provider} from 'react-redux'
+import {persistor, store} from './store'
+import {PersistGate} from 'redux-persist/integration/react'
 
 /**
  *
@@ -24,10 +27,14 @@ LogBox.ignoreAllLogs()
 
 const App = () => {
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle="dark-content" backgroundColor={'#fff'} />
-      <ApplicationNavigator />
-    </SafeAreaProvider>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <SafeAreaProvider>
+          <StatusBar barStyle="dark-content" backgroundColor={'#fff'} />
+          <ApplicationNavigator />
+        </SafeAreaProvider>
+      </PersistGate>
+    </Provider>
   )
 }
 
