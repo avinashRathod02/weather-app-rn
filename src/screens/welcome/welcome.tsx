@@ -1,19 +1,24 @@
 import React from 'react'
-import ElegantHeader from 'react-native-elegant-header'
-import colors from '@/colors'
 import {SafeAreaView} from 'react-native-safe-area-context'
-import t from 'locales/use-translation'
-import {View} from 'react-native'
+import {ImageBackground, View} from 'react-native'
+import images from '@/assets/images'
+import {Button, Text} from '@/components'
+import styles from './styles'
+import {routes} from '@/navigation'
 
 export default props => {
+  const onPress = () => props.navigation.navigate(routes.LOST_CONNECTION)
   return (
     <View style={{flex: 1}}>
-      <SafeAreaView>
-        <ElegantHeader
-          title={t('header.welcome')}
-          titleTextStyle={{color: colors.primary}}
-        />
-      </SafeAreaView>
+      <ImageBackground style={{flex: 1}} source={images.welcome_bg}>
+        <SafeAreaView
+          style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <View style={styles.container}>
+            <Text style={styles.title} tx="header.welcome" />
+            <Button onPress={onPress} tx="button.continue" />
+          </View>
+        </SafeAreaView>
+      </ImageBackground>
     </View>
   )
 }

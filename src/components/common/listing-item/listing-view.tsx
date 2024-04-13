@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
       width: 0,
       height: 1
     },
+    marginBottom: 30,
     shadowOpacity: 0.1,
     shadowColor: 'black',
     backgroundColor: 'white',

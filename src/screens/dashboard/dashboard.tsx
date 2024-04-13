@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import ElegantHeader from 'react-native-elegant-header'
 import colors from '@/colors'
 import {SafeAreaView} from 'react-native-safe-area-context'
@@ -10,15 +10,10 @@ export default props => {
   const {navigation} = props
   return (
     <View style={{flex: 1}}>
-      <SafeAreaView>
-        <ElegantHeader
-          title={t('header.items')}
-          titleTextStyle={{color: colors.primary}}
-          leftIconOnPress={navigation.goBack}
-        />
+      <SafeAreaView style={{flex: 1}}>
         <FlatList
           data={ITEMS}
-          base-class="pb-30 pt-15"
+          style={{height: '100%', paddingTop: 30}}
           renderItem={({item, index}) => <Item item={item} index={index} />}
         />
       </SafeAreaView>

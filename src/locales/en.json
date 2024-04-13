@@ -1,6 +1,8 @@
 {
   "common": {},
   "header": {
+    "welcome": "Welcome",
+    "lost_connection": "Lost Connection",
     "dashboard": "Dashboard"
   },
   "button": {

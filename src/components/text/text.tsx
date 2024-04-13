@@ -1,9 +1,17 @@
 import React from 'react'
-import {Text as RNText, StyleSheet} from 'react-native'
+import {Text as RNText, StyleSheet, TextProps} from 'react-native'
 import t from '@/locales/use-translation'
 import colors from '@/colors'
+import {Namespace, TFuncKey} from 'react-i18next'
 
-export default props => {
+interface IProps extends TextProps {
+  tx?: TFuncKey<Namespace>
+  txOptions?: any
+  text?: string
+  show?: boolean
+}
+
+export default (props: IProps) => {
   const {show = true, tx, style, text, children, txOptions} = props
   if (!show) {
     return <React.Fragment />
