@@ -5,6 +5,9 @@
     "lost_connection": "Lost Connection",
     "dashboard": "Dashboard"
   },
+  "dashboard": {
+    "no_data": "No Data"
+  },
   "button": {
     "continue": "Continue"
   },

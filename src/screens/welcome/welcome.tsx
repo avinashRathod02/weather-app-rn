@@ -7,7 +7,7 @@ import styles from './styles'
 import {routes} from '@/navigation'
 
 export default props => {
-  const onPress = () => props.navigation.navigate(routes.LOST_CONNECTION)
+  const onPress = () => props.navigation.navigate(routes.MAIN_DASHBOARD)
   return (
     <View style={{flex: 1}}>
       <ImageBackground style={{flex: 1}} source={images.welcome_bg}>
