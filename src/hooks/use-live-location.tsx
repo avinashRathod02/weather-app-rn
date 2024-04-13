@@ -3,18 +3,19 @@ import {Alert, Linking} from 'react-native'
 import GetLocation from 'react-native-get-location'
 import t from '@/locales/use-translation'
 
-const useLiveLocation = () => {
+const useLiveLocation = ({onLocationFailed}) => {
   const [location, setLocation] = useState(null)
 
   useEffect(() => {
     GetLocation.getCurrentPosition({
-      enableHighAccuracy: true,
-      timeout: 60000
+      enableHighAccuracy: false,
+      timeout: 20000
     })
       .then(location => {
         setLocation(location)
       })
-      .catch(error => {
+      .catch(async error => {
+        await onLocationFailed()
         askPermission()
       })
     return () => {}

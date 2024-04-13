@@ -1,6 +1,6 @@
 import React from 'react'
 import {SafeAreaView} from 'react-native-safe-area-context'
-import {ImageBackground, View} from 'react-native'
+import {ImageBackground, StatusBar, View} from 'react-native'
 import images from '@/assets/images'
 import {Button, Text} from '@/components'
 import styles from './styles'
@@ -10,6 +10,11 @@ export default props => {
   const onPress = () => props.navigation.navigate(routes.MAIN_DASHBOARD)
   return (
     <View style={{flex: 1}}>
+      <StatusBar
+        backgroundColor={'transparent'}
+        barStyle={'dark-content'}
+        translucent
+      />
       <ImageBackground style={{flex: 1}} source={images.welcome_bg}>
         <SafeAreaView
           style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>

@@ -11,6 +11,7 @@ import {fetchWeatherData} from '@/store/slices/common'
 
 export default props => {
   const [fetching, setFetching] = useState(true)
+  const [noLocation, setNoLocation] = useState(false)
   const {items, dashboardLoading} = useAppSelector(state => state.common)
 
   const fetchWeather = async () => {
@@ -19,8 +20,9 @@ export default props => {
       setFetching(false)
     })
   }
+  const onLocationFailed = () => setNoLocation(true)
   const dispatch = useAppDispatch()
-  const location = useLiveLocation()
+  const location = useLiveLocation({onLocationFailed})
   const isFocused = useIsFocused()
   useEffect(() => {
     if (!hasObjectLength(location)) return
@@ -32,7 +34,8 @@ export default props => {
   return (
     <View style={{flex: 1}}>
       <SafeAreaView style={{flex: 1}}>
-        {fetching && <Loading />}
+        {fetching && !noLocation && <Loading />}
+        {noLocation && <NoData />}
         {!fetching && (
           <FlatList
             ListEmptyComponent={NoData}
