@@ -1,4 +1,4 @@
-package com.expiryreminder
+package com.weatherapp
 
 import android.app.Application
 import com.facebook.react.PackageList

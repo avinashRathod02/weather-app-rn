@@ -1,20 +1,12 @@
 import React, {Fragment, useEffect, useState} from 'react'
-import {StyleSheet} from 'react-native'
+import {StyleSheet, TouchableOpacity} from 'react-native'
 import Animated from 'react-native-reanimated'
 import {isAndroidPlatform, isIosPlatform} from 'utils/platform'
-import {ButtonView, FadeList} from '@/components'
 
 const duration = 400
 
 export const ListingView = props => {
-  const {
-    children,
-    show = true,
-    scale = 0.99,
-    disabled = false,
-    index,
-    onSelect
-  } = props
+  const {children, show = true, disabled = false, index, onSelect} = props
   if (!show) return <Fragment />
   const [showShadow, setShowShadow] = useState(false)
   const delay = index.toString().slice(-1) * 50
@@ -31,18 +23,13 @@ export const ListingView = props => {
 
   return (
     <Animated.View>
-      <FadeList class={props?.class} delay={delay} duration={duration}>
-        <ButtonView
-          disabled={disabled}
-          scale={scale}
-          activeOpacity={1}
-          bind-class={props?.['listing-view-class']}
-          class="width-100% border-gray-200 rounded-16 bg-white"
-          style={[showShadow && styles.container, showShadow && shadowStyle]}
-          onPress={onSelect}>
-          {children}
-        </ButtonView>
-      </FadeList>
+      <TouchableOpacity
+        disabled={disabled}
+        activeOpacity={1}
+        style={[showShadow && styles.container, showShadow && shadowStyle]}
+        onPress={onSelect}>
+        {children}
+      </TouchableOpacity>
     </Animated.View>
   )
 }

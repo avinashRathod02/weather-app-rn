@@ -25,10 +25,9 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'expiryReminder' do
+target 'weatherApp' do
   config = use_native_modules!
-  pod 'GoogleUtilities', :modular_headers => true;
-  pod 'FirebaseCore', :modular_headers => true
+
   use_react_native!(
     :path => config[:reactNativePath],
     # Enables Flipper.
@@ -40,7 +39,7 @@ target 'expiryReminder' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'expiryReminderTests' do
+  target 'weatherAppTests' do
     inherit! :complete
     # Pods for testing
   end

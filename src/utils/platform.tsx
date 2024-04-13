@@ -1,5 +1,4 @@
 import {Dimensions, Platform} from 'react-native'
-import DeviceInfo from 'react-native-device-info'
 
 export function isIPhoneX() {
   const {height, width} = Dimensions.get('window')
@@ -16,8 +15,6 @@ export function isIPhoneX() {
       width === 926)
   )
 }
-
-export const isIphoneSE = DeviceInfo.getModel() === 'iPhone SE'
 
 export const isIosPlatform = Platform.OS === 'ios'
 
