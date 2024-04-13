@@ -1033,6 +1033,8 @@ PODS:
     - React-jsi (= 0.73.6)
     - React-logger (= 0.73.6)
     - React-perflogger (= 0.73.6)
+  - ReactNativeGetLocation (4.0.1):
+    - React-Core
   - RNCAsyncStorage (1.23.1):
     - React-Core
   - RNFastImage (8.6.3):
@@ -1115,6 +1117,7 @@ DEPENDENCIES:
   - React-runtimescheduler (from `../node_modules/react-native/ReactCommon/react/renderer/runtimescheduler`)
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - ReactNativeGetLocation (from `../node_modules/react-native-get-location`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - RNFastImage (from `../node_modules/react-native-fast-image`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
@@ -1230,6 +1233,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/react/utils"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  ReactNativeGetLocation:
+    :path: "../node_modules/react-native-get-location"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-async-storage/async-storage"
   RNFastImage:
@@ -1297,6 +1302,7 @@ SPEC CHECKSUMS:
   React-runtimescheduler: 9daefa990db62f8874bc9d6e7e504272c6b6c57f
   React-utils: d16c1d2251c088ad817996621947d0ac8167b46c
   ReactCommon: 447281ad2034ea3252bf81a60d1f77d5afb0b636
+  ReactNativeGetLocation: b4379a01dff72507d9abce5f4d569b98abef7761
   RNCAsyncStorage: 826b603ae9c0f88b5ac4e956801f755109fa4d5c
   RNFastImage: 5c9c9fed9c076e521b3f509fe79e790418a544e8
   RNGestureHandler: bc2cdb2dc42facdf34992ae364b8a728e19a3686

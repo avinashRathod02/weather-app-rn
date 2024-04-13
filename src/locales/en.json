@@ -8,8 +8,14 @@
   "dashboard": {
     "no_data": "No Data"
   },
+  "location_permission_declined": {
+    "title": "Device Location Not Enabled",
+    "description": "Please go to your system settings and enable location permission to Hungree App"
+  },
   "button": {
-    "continue": "Continue"
+    "continue": "Continue",
+    "got_to_settings": "Got To Settings",
+    "cancel": "Cancel"
   },
   "item": {
     "name_label": "Name",

@@ -26,7 +26,7 @@ export const ApplicationNavigator = () => {
     <NavigationContainer theme={theme} ref={navigationRef}>
       <Stack.Navigator
         headerMode="none"
-        initialRouteName={routes.WELCOME}
+        initialRouteName={routes.MAIN_DASHBOARD}
         screenOptions={slideFromRightTransition}>
         {CommonNavigator}
       </Stack.Navigator>
